@@ -1,3 +1,4 @@
+import BioLoginPage from "./pages/BioLoginPage"
 import Startpage from "./pages/StartPage"
 import TestingPage from "./pages/TestingPage"
 import { Box } from "@mui/material"
@@ -7,7 +8,8 @@ function App() {
     <Box>
       {/* <TestingPage /> */}
 
-      <Startpage />
+      {/* <Startpage /> */}
+      <BioLoginPage />
     </Box>
   )
 }

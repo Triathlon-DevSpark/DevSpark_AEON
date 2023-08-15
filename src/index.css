@@ -9,6 +9,6 @@
 
 body {
   margin: 0;
-  background-color: var(--black);
+  background-color: #000000;
   color: var(--secondary-light);
 }
