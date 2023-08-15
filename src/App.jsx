@@ -1,13 +1,11 @@
-import BioLoginPage from "../src/pages/BioLoginPage"
-import ComparisonPage from "../src/pages/ComparisonPage"
-import DetailedLocationPage from "../src/pages/DetailedLocationPage"
-import DetailedLocationPage from "../src/pages/DetailedLocationPage"
+import Startpage from "./pages/StartPage"
+import { Box } from "@mui/material"
 
 function App() {
   return (
-    <div className="App">
-      Hi
-    </div>
+    <Box>
+      <Startpage />
+    </Box>
   )
 }
 
