@@ -39,7 +39,7 @@ const darkTheme = createTheme({
 
   // Custom font sizes
   typography: {
-    fontFamily: ["dm-sans", "sans-serif"].join(","),
+    fontFamily: ["syne", "sans-serif"].join(","),
     h1: {
       fontSize: "32px"
     },

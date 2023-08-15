@@ -1,56 +1,60 @@
 import {
     Box,
-    Button,
+    Stack,
     Typography,
 } from "@mui/material"
+
+import planetBackground from "../resources/planetBG.jpg"
+import mainLogo from "../resources/AEON-logo.png"
+import { KeyboardDoubleArrowUp } from "@mui/icons-material"
 
 export default function Startpage() {
     return (
         <Box
             sx={{
                 minHeight: "100vh",
+                backgroundImage: `url(${planetBackground})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: {
+                    xs: "contain",
+                    sm: "cover",
+                },
+                backgroundPosition: "center",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "2rem"
+                justifyContent: "space-around",
             }}
         >
-            <Typography
-                variant="h1"
-                component="h1"
-                color="secondaryLight.main"
-            >
-                Welcome to DevSpark
-                <Typography
-                    variant="span"
-                    component="span"
-                    color="primary"
-                > AEON </Typography>
-            </Typography>
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginTop: "13rem"
+                }}>
+                <img src={mainLogo} alt="main-logo" />
+                <Stack direction="row" spacing={0.5}>
+                    <Typography variant="p">Space</Typography>
+                    <Typography variant="span">●</Typography>
+                    <Typography variant="p">Time</Typography>
+                    <Typography variant="span">●</Typography>
+                    <Typography variant="p">Fusion</Typography>
+                </Stack>
+            </Box>
 
             <Box
                 sx={{
                     display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
+                    flexDirection: "column",
                     alignItems: "center",
-                    gap: "1rem",
-                    bgcolor: "blackLight.main",
-                    padding: "2rem",
-                    borderRadius: "0.5rem",
-                    maxWidth: "25rem",
-                    border: "2px solid var(--primary)"
-                }}
-            >
-                <Button sx={{ width: "10rem" }} variant="contained">primary</Button>
-                <Button sx={{ width: "10rem" }} variant="contained" color="secondary">secondary</Button>
-                <Button sx={{ width: "10rem", color: "black.main" }} variant="contained" color="secondaryLight">secondaryLight</Button>
-                <Button sx={{ width: "10rem", color: "primary.main" }} variant="contained" color="secondaryDark">secondaryDark</Button>
-                <Button sx={{ width: "10rem" }} variant="outlined">primary</Button>
-                <Button sx={{ width: "10rem" }} variant="outlined" color="secondary">secondary</Button>
-                <Button sx={{ width: "10rem" }} variant="outlined" color="secondaryLight">secondaryLight</Button>
-                <Button sx={{ width: "10rem", color: "primary.main" }} variant="outlined" color="secondaryDark">secondaryDark</Button>
+                    justifyContent: "center",
+                    marginTop: "10rem"
+                }}>
+                <KeyboardDoubleArrowUp />
+                <Typography variant="h4" fontWeight="bold">
+                    Swipe up to Get started
+                </Typography>
             </Box>
         </Box>
     )
