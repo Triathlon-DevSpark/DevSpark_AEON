@@ -62,17 +62,6 @@ const darkTheme = createTheme({
       fontSize: "16px"
     },
   },
-
-  // Custom color for MUI paper
-  // components: {
-  //   MuiPaper: {
-  //     styleOverrides: {
-  //       root: {
-  //         backgroundColor: "var(--primary-light)",
-  //       }
-  //     }
-  //   }
-  // }
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
