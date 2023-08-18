@@ -32,8 +32,7 @@ export default function BottomNavbar() {
                         xs: "nowrap",
                         sm: "wrap"
                     },
-                    border: "1px solid #1a2407",
-                    zIndex: "100"
+                    border: "1px solid #1a2407"
                 }}
             >
 
