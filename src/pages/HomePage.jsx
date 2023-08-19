@@ -8,6 +8,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Canvas } from "@react-three/fiber";
 import { Diversity1, Groups, NearMe } from "@mui/icons-material";
 import { Planet } from "../components/planet";
+import EarthImage from "../resources/planets/earth-planet.png";
+import MarsImage from "../resources/planets/mars-planet.png";
 
 export default function HomePage() {
   const year = new Date().getFullYear();
@@ -23,7 +25,7 @@ export default function HomePage() {
   const packages = [
     {
       planetName: "Earth",
-      planetImage: "/src/resources/planets/earth-planet.png",
+      planetImage: EarthImage,
       planetColor: "#0000FF",
       planetProperties: {
         // The source root location of the texture should be given for threejs to work
@@ -40,7 +42,7 @@ export default function HomePage() {
     },
     {
       planetName: "Mars",
-      planetImage: "/src/resources/planets/mars-planet.png",
+      planetImage: MarsImage,
       planetColor: "#FF2700",
       planetProperties: {
         planetMap: "/src/resources/globe-textures/2k_venus_surface.jpg",
@@ -266,7 +268,11 @@ export default function HomePage() {
             backgroundImage: `linear-gradient(180deg, #5115B2 0%, var(--secondary-dark) 100%)`,
           }}
         >
-          <Box>Auralia to Earth component</Box>
+          <Box>
+            <Box>
+              <Typography variant="h2">Aurelia</Typography>
+            </Box>
+          </Box>
 
           <Divider
             sx={{ bgcolor: "secondary.main" }}
