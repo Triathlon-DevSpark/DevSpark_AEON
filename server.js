@@ -1,52 +1,35 @@
 import path from "path";
-import express from "express"
+import express from "express";
 import MongoClient from "mongodb";
-import { dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { db } from "./db.js";
+import { User } from "./Model/user.js";
+import { Planet } from "./Model/planet.js";
+
+import { registerUser, getUserDetails } from "./Controllers/userControllers.js";
+
+import { RegisterPlanet } from "./Controllers/planetController.js";
 
 // Serving the react build app through NodeJS (No Cors errors)
-const app = express()
+const app = express();
 app.use(express.static("dist"));
+app.use(express.json());
 
-const _dirname = typeof __dirname !== 'undefined'
+const _dirname =
+  typeof __dirname !== "undefined"
     ? __dirname
-    : dirname(fileURLToPath(import.meta.url))
-
+    : dirname(fileURLToPath(import.meta.url));
 
 app.get("/", (req, res) => {
-    // res.send({ message: "Hello from home" })
-    res.sendFile(path.resolve(_dirname, "dist", "index.html"));
-})
+  // res.send({ message: "Hello from home" })
+  res.sendFile(path.resolve(_dirname, "dist", "index.html"));
+});
 
-// Other routes
+app.route("/user").post(registerUser).get(getUserDetails);
+app.route("/planet").post(RegisterPlanet);
 
 // Listening port
-app.listen(8080, () => {
-    console.log("Running Node Server on port 8080...")
-})
-
-
-async function main() {
-    const uri = "mongodb+srv://AEONData:AeonsuperApp123@aeon.bt4mfju.mongodb.net/";
-    const client = new MongoClient(uri);
-    try {
-        await client.connect();
-
-        await listDatabases(client);
-
-    } catch (e) {
-        console.error(e);
-    } finally {
-        await client.close();
-    }
-}
-
-main().catch(console.error);
-
-async function listDatabases(client) {
-    databasesList = await client.db().admin().listDatabases();
-
-    console.log("Databases:");
-    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-};
-
+app.listen(8080, async () => {
+  console.log("Running Node Server on port 8080...");
+});
