@@ -52,8 +52,7 @@ export default function PlanetInfo() {
         const booking = {
             travelID: "123456789",
             userName: "John Doe",
-            userLocation: "Earth",
-            userDestination: "Mars",
+            userLocation: "Mars",
             departureDate: "2023-10-10",
             returnDate: "2023-10-20",
             numberOfPassengers: 1,
