@@ -1,8 +1,18 @@
 import { Box, Typography } from "@mui/material";
 import BottomCircle from "../components/BottomCircle";
 import bioGlobeAnim from "../resources/bioglobe-video.mp4";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function BioLoginPage() {
+    // navigate to login page after 5 seconds
+    const navigate = useNavigate()
+    useEffect(() => {
+        setTimeout(() => {
+            navigate("/home")
+        }, 5000);
+    }, [])
+
     return (
         <Box
             sx={{

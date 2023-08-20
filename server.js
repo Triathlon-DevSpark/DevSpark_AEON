@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { db } from "./db.js";
 import { User } from "./Model/user.js";
 import { Planet } from "./Model/planet.js";
+import cors from "cors"
 
 import { registerUser, getUserDetails } from "./Controllers/userControllers.js";
 
@@ -15,6 +16,7 @@ import { RegisterPlanet } from "./Controllers/planetController.js";
 const app = express();
 app.use(express.static("dist"));
 app.use(express.json());
+app.use(cors());
 
 const _dirname =
   typeof __dirname !== "undefined"

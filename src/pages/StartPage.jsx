@@ -7,8 +7,18 @@ import {
 import planetBackground from "../resources/planetBG.jpg"
 import mainLogo from "../resources/AEON-logo.png"
 import { KeyboardDoubleArrowUp } from "@mui/icons-material"
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function Startpage() {
+    // navigate to login page after 5 seconds
+    const navigate = useNavigate()
+    useEffect(() => {
+        setTimeout(() => {
+            navigate("/login")
+        }, 5000);
+    }, [])
+
     return (
         <Box
             sx={{

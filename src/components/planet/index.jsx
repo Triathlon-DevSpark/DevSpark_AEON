@@ -6,8 +6,7 @@ import { useRef } from "react";
 // ThreeJS Planet Component
 export function Planet({ planetProperties }) {
     // Object destructuring
-    const { planetMap, planetNormalMap, planetCloudsMap, planetSpecularMap, planetScale = [2.8, 2.8, 2.8], // Default scale if not provided
-} = planetProperties
+    const { planetMap, planetNormalMap, planetCloudsMap, planetSpecularMap } = planetProperties
 
     // if all 4 properties are there
     if (planetMap && planetNormalMap && planetCloudsMap && planetSpecularMap) {
@@ -27,17 +26,17 @@ export function Planet({ planetProperties }) {
                 <Stars radius={300} depth={60} count={10000} factor={7} saturation={0} fade={true} />
                 <ambientLight intensity={1.2} />
                 <pointLight color="#f6f3ea" position={[2.5, 1, 2.5]} intensity={1.2} />
-                <mesh ref={cloudsRef} scale={planetScale}>
+                <mesh ref={cloudsRef} scale={[2.8, 2.8, 2.8]}>
                     <sphereGeometry args={[1.005, 32, 32]} />
                     <meshPhongMaterial map={cloudsMap} opacity={0.4} depthWrite={true} transparent={true} side={DoubleSide} />
                 </mesh>
-                <mesh ref={planetRef} scale={planetScale}>
+                <mesh ref={planetRef} scale={[2.8, 2.8, 2.8]}>
                     <sphereGeometry args={[1, 32, 32]} />
                     <meshPhongMaterial specularMap={specularMap} />
                     <meshStandardMaterial map={colorMap} normalMap={normalMap} metalness={0.4} roughness={0.7} />
                 </mesh>
-                <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} zoomSpeed={0.6} panSpeed={0.5} rotateSpeed={0.4} 
-              />
+                <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} zoomSpeed={0.6} panSpeed={0.5} rotateSpeed={0.4}
+                />
             </>
         );
     }
@@ -60,11 +59,11 @@ export function Planet({ planetProperties }) {
                 <Stars radius={300} depth={60} count={10000} factor={7} saturation={0} fade={true} />
                 <ambientLight intensity={1.2} />
                 <pointLight color="#f6f3ea" position={[2, 0, 2]} intensity={1.2} />
-                <mesh ref={cloudsRef} scale={planetScale}>
+                <mesh ref={cloudsRef} scale={[2.8, 2.8, 2.8]}>
                     <sphereGeometry args={[1.005, 32, 32]} />
                     <meshPhongMaterial map={cloudsMap} opacity={0.4} depthWrite={true} transparent={true} side={DoubleSide} />
                 </mesh>
-                <mesh ref={planetRef} scale={planetScale}>
+                <mesh ref={planetRef} scale={[2.8, 2.8, 2.8]}>
                     <sphereGeometry args={[1, 32, 32]} />
                     <meshPhongMaterial specularMap={specularMap} />
                     <meshStandardMaterial map={colorMap} normalMap={normalMap} metalness={0.4} roughness={0.7} />
@@ -91,11 +90,11 @@ export function Planet({ planetProperties }) {
             <>
                 <ambientLight intensity={1.2} />
                 <pointLight color="#f6f3ea" position={[2, 0, 2]} intensity={1.2} />
-                <mesh ref={cloudsRef} scale={planetScale}>
+                <mesh ref={cloudsRef} scale={[2.8, 2.8, 2.8]}>
                     <sphereGeometry args={[1.005, 32, 32]} />
                     <meshPhongMaterial map={cloudsMap} opacity={0.4} depthWrite={true} transparent={true} side={DoubleSide} />
                 </mesh>
-                <mesh ref={planetRef} scale={planetScale}>
+                <mesh ref={planetRef} scale={[2.8, 2.8, 2.8]}>
                     <sphereGeometry args={[1, 32, 32]} />
                     <meshPhongMaterial specularMap={specularMap} />
                     <meshStandardMaterial map={colorMap} normalMap={normalMap} metalness={0.4} roughness={0.7} />
@@ -120,8 +119,8 @@ export function Planet({ planetProperties }) {
             <Stars radius={300} depth={60} count={10000} factor={6} saturation={0} fade={true} />
             <ambientLight intensity={1} />
             <pointLight color="#f6f3ea" position={[2.5, 1, 2.5]} intensity={1.2} />
-            <mesh ref={planetRef} scale={planetScale}>
-                <sphereGeometry args={[1, 32, 32] } />
+            <mesh ref={planetRef} scale={[2.8, 2.8, 2.8]}>
+                <sphereGeometry args={[1, 32, 32]} />
                 <meshStandardMaterial map={colorMap} metalness={0.4} roughness={0.7} />
                 <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} zoomSpeed={0.6} panSpeed={0.5} rotateSpeed={0.4} />
             </mesh>

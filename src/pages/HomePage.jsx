@@ -6,22 +6,23 @@ import { Stack, Typography, InputBase, Card, Divider } from "@mui/material";
 import earth from "../resources/earth-globe-loop.gif";
 import SearchIcon from "@mui/icons-material/Search";
 import { Canvas } from "@react-three/fiber";
-import { Diversity1, Groups, NearMe } from "@mui/icons-material";
 import { Planet } from "../components/planet";
+import { Diversity1, Groups, Height, NearMe } from "@mui/icons-material";
 import EarthImage from "../resources/planets/earth-planet.png";
 import MarsImage from "../resources/planets/mars-planet.png";
+import { useNavigate } from "react-router-dom";
 
-export default function HomePage() {
+export default function HomePage({ setInfoToPlanet }) {
   const year = new Date().getFullYear();
   const month = new Date().getMonth();
   const today = new Date().getDate();
+  const navigate = useNavigate();
 
   function searchPackage(e) {
     e.preventDefault();
     console.log(e.target.sample.value);
   }
 
-  // Dummy data for packages
   const packages = [
     {
       planetName: "Earth",
@@ -29,12 +30,10 @@ export default function HomePage() {
       planetColor: "#0000FF",
       planetProperties: {
         // The source root location of the texture should be given for threejs to work
-        planetMap: "/src/resources/globe-textures/2k_earth_daymap.jpg",
-        planetNormalMap:
-          "/src/resources/globe-textures/2k_earth_normal_map.jpg",
-        planetCloudsMap: "/src/resources/globe-textures/2k_earth_clouds.jpg",
-        planetSpecularMap:
-          "/src/resources/globe-textures/2k_earth_specular_map.jpg",
+        planetMap: "/globe-textures/2k_earth_daymap.jpg",
+        planetNormalMap: "/globe-textures/2k_earth_normal_map.jpg",
+        planetCloudsMap: "/globe-textures/2k_earth_clouds.jpg",
+        planetSpecularMap: "/globe-textures/2k_earth_specular_map.jpg",
       },
       planetLocation: "Milky Way Galaxy",
       distanceFromEarth: "225M KM",
@@ -45,7 +44,7 @@ export default function HomePage() {
       planetImage: MarsImage,
       planetColor: "#FF2700",
       planetProperties: {
-        planetMap: "/src/resources/globe-textures/2k_venus_surface.jpg",
+        planetMap: "/globe-textures/2k_venus_surface.jpg",
         planetNormalMap: "",
         planetCloudsMap: "",
         planetSpecularMap: "",
@@ -55,6 +54,14 @@ export default function HomePage() {
       planetPopulation: "50K",
     },
   ];
+
+  const callPlanet = (planet) => {
+    // set planet info
+    setInfoToPlanet(planet)
+
+    // navigate to planet route
+    navigate("/planetinfo")
+  }
 
   return (
     <Box
@@ -170,6 +177,7 @@ export default function HomePage() {
                   backgroundImage: `linear-gradient(180deg, black 30%, ${planet.planetColor} 70%)`,
                   flex: "0 0 auto",
                 }}
+                onClick={() => { callPlanet(planet) }}
               >
                 <Box
                   style={{
@@ -268,9 +276,72 @@ export default function HomePage() {
             backgroundImage: `linear-gradient(180deg, #5115B2 0%, var(--secondary-dark) 100%)`,
           }}
         >
-          <Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              position: "relative",
+              width: "10rem",
+              height: "15rem",
+              gap: "5rem"
+            }}>
             <Box>
-              <Typography variant="h2">Aurelia</Typography>
+              <img
+                src={MarsImage}
+                alt="planet-1"
+                style={{
+                  width: "5rem",
+                  position: "absolute",
+                  top: "0",
+                  right: "0",
+                  left: "0",
+                  margin: "0 auto"
+                }}
+              />
+              <Typography
+                variant="h4"
+                textAlign="center"
+                sx={{
+                  position: "absolute",
+                  top: "2rem",
+                  right: "0",
+                  left: "0",
+                  margin: "0 auto"
+                }}>Mars</Typography>
+            </Box>
+
+            <Height
+              fontSize="large"
+              sx={{
+                margin: "1rem 0"
+              }} />
+
+            <Box sx={{
+              height: "5rem"
+            }}>
+              <img
+                src={EarthImage}
+                alt="planet-2"
+                style={{
+                  width: "5rem",
+                  position: "absolute",
+                  bottom: "0",
+                  right: "0",
+                  left: "0",
+                  margin: "0 auto"
+                }}
+              />
+              <Typography
+                variant="h4"
+                textAlign="center"
+                sx={{
+                  position: "absolute",
+                  bottom: "2rem",
+                  right: "0",
+                  left: "0",
+                  margin: "0 auto"
+                }}>Earth</Typography>
             </Box>
           </Box>
 
@@ -299,7 +370,7 @@ export default function HomePage() {
               <Typography variant="p">Cost: 2000 SPC</Typography>
             </Box>
 
-            <Box>Ticket Image</Box>
+            <Box>xAOWREx2 13034x</Box>
           </Box>
         </Card>
       </Box>
